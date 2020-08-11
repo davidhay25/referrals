@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AppConfig {
+    }
     interface AppDetail {
         "id": string;
     }
@@ -13,8 +15,16 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface AppTabs {
+    }
 }
 declare global {
+    interface HTMLAppConfigElement extends Components.AppConfig, HTMLStencilElement {
+    }
+    var HTMLAppConfigElement: {
+        prototype: HTMLAppConfigElement;
+        new (): HTMLAppConfigElement;
+    };
     interface HTMLAppDetailElement extends Components.AppDetail, HTMLStencilElement {
     }
     var HTMLAppDetailElement: {
@@ -33,13 +43,23 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLAppTabsElement extends Components.AppTabs, HTMLStencilElement {
+    }
+    var HTMLAppTabsElement: {
+        prototype: HTMLAppTabsElement;
+        new (): HTMLAppTabsElement;
+    };
     interface HTMLElementTagNameMap {
+        "app-config": HTMLAppConfigElement;
         "app-detail": HTMLAppDetailElement;
         "app-home": HTMLAppHomeElement;
         "app-root": HTMLAppRootElement;
+        "app-tabs": HTMLAppTabsElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppConfig {
+    }
     interface AppDetail {
         "id"?: string;
     }
@@ -47,19 +67,25 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface AppTabs {
+    }
     interface IntrinsicElements {
+        "app-config": AppConfig;
         "app-detail": AppDetail;
         "app-home": AppHome;
         "app-root": AppRoot;
+        "app-tabs": AppTabs;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-config": LocalJSX.AppConfig & JSXBase.HTMLAttributes<HTMLAppConfigElement>;
             "app-detail": LocalJSX.AppDetail & JSXBase.HTMLAttributes<HTMLAppDetailElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-tabs": LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
         }
     }
 }

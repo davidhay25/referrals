@@ -38,12 +38,21 @@ export class AppDetail {
       <ion-content class="ion-padding">
         <p>
          Details page.
-{this.referral.display}
+            {this.referral.display}
          
          
          
          
         </p>
+
+        <section>
+          <header>Action</header>
+            <ion-button color="danger">Reject</ion-button>
+            <ion-button color="warning">Transfer</ion-button>
+            <ion-button color="success">Accept</ion-button>
+        </section>
+        
+
 
  
       </ion-content>,

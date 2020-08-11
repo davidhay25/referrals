@@ -48,7 +48,7 @@ export class AppHome {
           <ion-grid>
           <ion-row>
             <ion-col size="auto">
-            <ion-title>Referrals Manager</ion-title>
+              <ion-title>Referrals Manager</ion-title>
             </ion-col>
             <ion-col>
             <ion-select value="card">
