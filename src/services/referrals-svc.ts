@@ -10,8 +10,11 @@ class ReferralsServiceClass {
             return this.referrals;
         } else {
 
-            let url = "http://home.clinfhir.com:8054/baseR4/Task?code=http://clinfhir.com/cs/taskType|referral&_include=Task:subject"
-            //url += "&_include=Task:for"
+            //using clcinfhir to proxy https requests
+
+            let url = "https://survey.clinfhir.com/proxy/Task?code=http://clinfhir.com/cs/taskType|referral&_include=Task:subject"
+            //let url = "http://home.clinfhir.com:8054/baseR4/Task?code=http://clinfhir.com/cs/taskType|referral&_include=Task:subject"
+           
             console.log('about to make request')
             let response = await fetch(url)
             console.log('after make request')
