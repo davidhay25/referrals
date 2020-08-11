@@ -15,11 +15,12 @@ export class Referral {
     display: string;
     id : string;
     patientName : string;
-    patient: Patient
+    patient: Patient;
 
     constructor (id:string,display: string) {
         this.id = id;
         this.display = display;
-        this.patientName = "Unknown patient"
+        this.patient = new Patient("0","Loading...")
+        console.log(this.patient)
     }
 }

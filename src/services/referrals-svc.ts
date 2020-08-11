@@ -18,6 +18,7 @@ class ReferralsServiceClass {
             console.log('about to make request')
             let response = await fetch(url)
             console.log('after make request')
+
             let bundle = await response.json()
 
             this.referrals = [];
