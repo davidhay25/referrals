@@ -16,6 +16,7 @@ export class AppRoot {
             <ion-route url="/" component="tab-home">
               <ion-route component="app-home" />
               <ion-route url="/detail/:id" component="app-detail" />
+              <ion-route url="/accept/:id" component="app-accept" />
             </ion-route>
 
             <ion-route url="/config" component="tab-config">
@@ -25,7 +26,7 @@ export class AppRoot {
           </ion-route>
           
         </ion-router>
-        <ion-nav />
+        <ion-nav /> 
       </ion-app>
     );
   }
