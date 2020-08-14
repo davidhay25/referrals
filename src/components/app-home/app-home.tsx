@@ -15,7 +15,7 @@ export class AppHome {
 
   //@State() hideme: boolean = false;
   @State() selectedReferrral : Referral = null;
-  @State() actionState: string;
+  @State() actionState: string = null;
   @State() priority : string;
 
   //@Event() onToggle: EventEmitter;
@@ -36,6 +36,8 @@ export class AppHome {
   async componentWillRender() {
     this.referrals = await ReferralsService.load()
     console.log('home: will render')
+    console.log(this.actionState)
+
   }
 
   componentDidLoad(){
