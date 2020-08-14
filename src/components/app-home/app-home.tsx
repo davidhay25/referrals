@@ -1,4 +1,4 @@
-import { Component, h, State, Event, Listen } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
 import { Referral } from "../../classes/referral"
 
 import { ReferralsService} from "../../services/referrals-svc"
@@ -27,11 +27,6 @@ export class AppHome {
   }
 */
 
-  @Listen("window:update") 
-  async handleUpdate(ev) {
-    console.log('home: update')
-    this.referrals = await ReferralsService.load()
-}
 
   async componentWillRender() {
     this.referrals = await ReferralsService.load()
