@@ -7,12 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppAccept {
-        "id": string;
+        "referralId": string;
     }
     interface AppConfig {
     }
     interface AppDetail {
-        "id": string;
+        "referralId": string;
     }
     interface AppHome {
     }
@@ -69,12 +69,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppAccept {
-        "id"?: string;
+        "referralId"?: string;
     }
     interface AppConfig {
     }
     interface AppDetail {
-        "id"?: string;
+        "referralId"?: string;
     }
     interface AppHome {
     }

@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 
-import { ReferralsService} from "../../services/referrals-svc"
+//import { ReferralsService} from "../../services/referrals-svc"
 
 
 @Component({
@@ -8,12 +8,12 @@ import { ReferralsService} from "../../services/referrals-svc"
   styleUrl: 'app-accept.css',
 })
 export class AppAccept {
-    @Prop() id: string;
+    @Prop() referralId: string;
     private priority : string = "routine";
-    private navCtrl: HTMLIonRouterElement;
+    //private navCtrl: HTMLIonRouterElement;
 
     componentDidLoad(){
-      this.navCtrl = document.querySelector("ion-router")
+    //  this.navCtrl = document.querySelector("ion-router")
     }
 
     private confirm() {
@@ -21,7 +21,8 @@ export class AppAccept {
     }
 
     async updateTask() {
-      let outcome = await ReferralsService.accept(this.id,this.priority);
+      /*
+     // let outcome = await ReferralsService.accept(this.id,this.priority);
       console.log('done',outcome);
 
       if (outcome.ok) {
@@ -30,7 +31,7 @@ export class AppAccept {
       } else {
 
       }
-      
+      */
     }
  
     private setPriority(ev) {
@@ -45,7 +46,7 @@ export class AppAccept {
                 <ion-back-button defaultHref="/" />
               </ion-buttons>
 
-            <ion-title>Accept {this.id}</ion-title>
+            <ion-title>Accept {this.referralId}</ion-title>
     
             </ion-toolbar>
           </ion-header>,

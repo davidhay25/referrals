@@ -1,5 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core';
-
+import { Component, Prop, h } from '@stencil/core';
 import { ReferralsService} from "../../services/referrals-svc"
 import { Referral } from '../../classes/referral';
 
@@ -10,30 +9,32 @@ import { Referral } from '../../classes/referral';
 })
 
 export class AppDetail {
-  @State() referral : Referral;
-  @Prop() id: string;
+  referral : Referral;
+  @Prop() referralId: string;
 
-  //need to load referral before page displays
-  componentWillLoad(){
-    console.log(this.id)
-    this.referral = ReferralsService.getReferral(this.id);  //can be sync
-    console.log(this.referral)
-  }
-
+/*
   private navCtrl: HTMLIonRouterElement;
 
   componentDidLoad(){
     this.navCtrl = document.querySelector("ion-router")
  
   }
+*/
 
-  reject() {
-    console.log('reject')
+componentDidLoad(){
+  console.log("detaill: did load")
 
+}
+
+  async componentWillRender() {
+    console.log("detaill: will render")
+    this.referral = ReferralsService.getReferral(this.referralId);  //can be sync
+    console.log(this.referral)
   }
 
-  accept() {
-    this.navCtrl.push("/accept/" + this.id,"forward")
+  componentDidRender() {
+    console.log("detaill: did render")
+  
   }
 
   render() {
@@ -48,12 +49,24 @@ export class AppDetail {
         </ion-toolbar>
       </ion-header>,
 */
-      <ion-content class="ion-padding">
-        <p>
-         Details page.
-            {this.referral.display}
-        </p>
-      </ion-content>,
+
+<ion-label>
+  {this.referral && this.referral.patient && this.referral.patient.display}  
+</ion-label>,
+
+<ion-card>
+  <ion-card-title>
+  
+  </ion-card-title>
+  <ion-card-content>
+    {this.referral && this.referral.display}
+  </ion-card-content>
+</ion-card>
+
+,
+
+
+
 /*
       <ion-footer>
         <section>
